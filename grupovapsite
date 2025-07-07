@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trabalhe Conosco - GRUPO VAP</title>
+  <style>
+    :root {
+      --laranja: #FF6B00;
+      --preto: #000000;
+      --branco: #FFFFFF;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: var(--branco);
+      color: var(--preto);
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: var(--preto);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-img {
+      height: 45px;
+      /* better proportion */
+      margin-right: 15px;
+      object-fit: contain;
+      /* ensures proper scaling */
+    }
+
+    .logo-text {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--laranja);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin-left: 2rem;
+    }
+
+    nav ul li a {
+      color: var(--branco);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: var(--laranja);
+    }
+
+    .hero {
+      background-color: var(--laranja);
+      color: var(--branco);
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      max-width: 800px;
+      margin: 0 auto 2rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .form-section {
+      background-color: var(--branco);
+      border: 1px solid #eee;
+      border-radius: 8px;
+      padding: 2rem;
+      margin: -5rem auto 3rem;
+      max-width: 800px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-section h2 {
+      color: var(--laranja);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+
+    .form-group textarea {
+      height: 150px;
+      resize: vertical;
+    }
+
+    button {
+      background-color: var(--laranja);
+      color: var(--branco);
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #e05e00;
+    }
+
+    footer {
+      background-color: var(--preto);
+      color: var(--branco);
+      padding: 2rem;
+      margin-top: 3rem;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      max-width: 1200px;
+      margin: 0 auto 2rem;
+    }
+
+    .logo-footer {
+      margin: 1rem 0;
+    }
+
+    .logo-footer .logo-text {
+      font-size: 1.5rem;
+    }
+
+    .footer-addresses {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .address {
+      margin: 1rem 0;
+    }
+
+    .address h3 {
+      color: var(--laranja);
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 1rem;
+      border-top: 1px solid #333;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        padding: 1rem;
+      }
+
+      nav ul {
+        margin-top: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      nav ul li {
+        margin: 0.5rem;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .form-section {
+        margin: -2rem auto 3rem;
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <!-- Logo image removed (previously used Google Drive link) -->
+      <div class="logo-text">GRUPO VAP</div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#">Início</a></li>
+        <li><a href="#">Sobre</a></li>
+        <li><a href="#">Serviços</a></li>
+        <li><a href="#trabalhe-conosco">Trabalhe Conosco</a></li>
+        <li><a href="#">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Faça parte do nosso time</h1>
+    <p>Estamos sempre em busca de talentos que compartilhem nossa paixão por excelência e inovação. Envie seu currículo e venha crescer conosco!</p>
+  </section>
+
+  <div class="container">
+    <section id="trabalhe-conosco" class="form-section">
+      <h2>Trabalhe Conosco</h2>
+      <form id="trabalheForm" action="YOUR_GOOGLE_FORM_URL" method="POST">
+        <div class="form-group">
+          <label for="nome">Nome Completo</label>
+          <input type="text" id="nome" name="nome" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="telefone">Telefone</label>
+          <input type="tel" id="telefone" name="telefone">
+        </div>
+
+        <div class="form-group">
+          <label for="cargo">Cargo de Interesse</label>
+          <select id="cargo" name="cargo" required>
+            <option value="">Selecione...</option>
+            <option value="consultor_vendas">Consultor de Vendas - Telemarketing</option>
+            <option value="supervisor_call">Supervisor de Call Center</option>
+            <option value="estagio_dp">Estágio em Departamento Pessoal</option>
+            <option value="supervisor_back">Supervisor de BackOffice</option>
+            <option value="outro">Outro</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="mensagem">Mensagem</label>
+          <textarea id="mensagem" name="mensagem" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="curriculo">Anexar Currículo (PDF)</label>
+          <!-- Google Forms doesn't support direct file uploads - consider alternative -->
+          <input type="text" id="curriculo" name="entry.PASTE_FIELD_ID" placeholder="Link para currículo (ex: Google Drive)">
+          <small>Envie seu currículo para um serviço como Google Drive e cole o link aqui</small>
+        </div>
+
+        <button type="submit">Enviar Candidatura</button>
+      </form>
+    </section>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <div class="logo-footer">
+        <!-- Logo image removed (previously used Google Drive link) -->
+        <div class="logo-text">GRUPO VAP</div>
+      </div>
+      <div class="footer-addresses">
+        <div class="address">
+          <h3>Barreiro</h3>
+          <p>Av. Sinfrônio Brochado, 624</p>
+          <p>Barreiro - Belo Horizonte/MG</p>
+        </div>
+        <div class="address">
+          <h3>Centro</h3>
+          <p>Rua Espírito Santo, 466</p>
+          <p>Centro - Belo Horizonte/MG</p>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>&copy; 2023 GRUPO VAP. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('trabalheForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      // Simulação de envio do formulário
+      const nome = document.getElementById('nome').value;
+      // Exibe mensagem de sucesso
+      alert(`Obrigado, ${nome}! Sua candidatura foi recebida e será analisada por nossa equipe.`);
+      // Limpa o formulário
+      this.reset();
+    });
+  </script>
+</body>
+
+</html>
