@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trabalhe Conosco - GRUPO VAP</title>
+  <title>GRUPO VAP</title>
+
   <style>
     :root {
       --laranja: #FF6B00;
@@ -37,14 +38,6 @@
     .logo {
       display: flex;
       align-items: center;
-    }
-
-    .logo-img {
-      height: 45px;
-      /* better proportion */
-      margin-right: 15px;
-      object-fit: contain;
-      /* ensures proper scaling */
     }
 
     .logo-text {
@@ -108,6 +101,10 @@
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     }
 
+    .form-section + .form-section {
+      margin-top: 2rem;
+    }
+
     .form-section h2 {
       color: var(--laranja);
       margin-bottom: 1.5rem;
@@ -137,6 +134,10 @@
     .form-group textarea {
       height: 150px;
       resize: vertical;
+    }
+
+    small {
+      color: #666;
     }
 
     button {
@@ -230,17 +231,19 @@
 </head>
 
 <body>
+
   <header>
     <div class="logo">
-      <!-- Logo image removed (previously used Google Drive link) -->
       <div class="logo-text">GRUPO VAP</div>
     </div>
+
     <nav>
       <ul>
         <li><a href="#">Início</a></li>
         <li><a href="#">Sobre</a></li>
         <li><a href="#">Serviços</a></li>
         <li><a href="#trabalhe-conosco">Trabalhe Conosco</a></li>
+        <li><a href="#ouvidoria">Ouvidoria</a></li>
         <li><a href="#">Contato</a></li>
       </ul>
     </nav>
@@ -248,13 +251,21 @@
 
   <section class="hero">
     <h1>Faça parte do nosso time</h1>
-    <p>Estamos sempre em busca de talentos que compartilhem nossa paixão por excelência e inovação. Envie seu currículo e venha crescer conosco!</p>
+    <p>
+      Estamos sempre em busca de talentos que compartilhem nossa paixão por excelência e inovação.
+      Envie seu currículo e venha crescer conosco!
+    </p>
   </section>
 
   <div class="container">
+
+    <!-- Trabalhe Conosco -->
     <section id="trabalhe-conosco" class="form-section">
+
       <h2>Trabalhe Conosco</h2>
-      <form id="trabalheForm" action="YOUR_GOOGLE_FORM_URL" method="POST">
+
+      <form id="trabalheForm">
+
         <div class="form-group">
           <label for="nome">Nome Completo</label>
           <input type="text" id="nome" name="nome" required>
@@ -272,12 +283,21 @@
 
         <div class="form-group">
           <label for="cargo">Cargo de Interesse</label>
+
           <select id="cargo" name="cargo" required>
             <option value="">Selecione...</option>
-            <option value="consultor_vendas">Consultor de Vendas - Telemarketing</option>
-            <option value="supervisor_call">Supervisor de Call Center</option>
-            <option value="estagio_dp">Estágio em Departamento Pessoal</option>
-            <option value="supervisor_back">Supervisor de BackOffice</option>
+            <option value="consultor_vendas">
+              Consultor de Vendas - Telemarketing
+            </option>
+            <option value="supervisor_call">
+              Supervisor de Call Center
+            </option>
+            <option value="estagio_dp">
+              Estágio em Departamento Pessoal
+            </option>
+            <option value="supervisor_back">
+              Supervisor de BackOffice
+            </option>
             <option value="outro">Outro</option>
           </select>
         </div>
@@ -288,52 +308,143 @@
         </div>
 
         <div class="form-group">
-          <label for="curriculo">Anexar Currículo (PDF)</label>
-          <!-- Google Forms doesn't support direct file uploads - consider alternative -->
-          <input type="text" id="curriculo" name="entry.PASTE_FIELD_ID" placeholder="Link para currículo (ex: Google Drive)">
-          <small>Envie seu currículo para um serviço como Google Drive e cole o link aqui</small>
+          <label for="curriculo">
+            Anexar Currículo (Link Google Drive)
+          </label>
+
+          <input
+            type="text"
+            id="curriculo"
+            name="curriculo"
+            placeholder="Cole aqui o link do currículo">
+
+          <small>
+            Faça upload do currículo no Google Drive e cole o link aqui.
+          </small>
         </div>
 
-        <button type="submit">Enviar Candidatura</button>
+        <button type="submit">
+          Enviar Candidatura
+        </button>
+
       </form>
+
     </section>
+
+    <!-- Ouvidoria -->
+    <section id="ouvidoria" class="form-section">
+
+      <h2>Ouvidoria</h2>
+
+      <form id="ouvidoriaForm">
+
+        <div class="form-group">
+          <label for="ouvidoriaNome">Nome</label>
+          <input type="text" id="ouvidoriaNome" name="nome">
+        </div>
+
+        <div class="form-group">
+          <label for="ouvidoriaEmail">E-mail</label>
+          <input type="email" id="ouvidoriaEmail" name="email">
+        </div>
+
+        <div class="form-group">
+          <label for="tipoManifestacao">
+            Tipo de Manifestação
+          </label>
+
+          <select id="tipoManifestacao" name="tipo">
+            <option value="">Selecione...</option>
+            <option value="reclamacao">Reclamação</option>
+            <option value="elogio">Elogio</option>
+            <option value="sugestao">Sugestão</option>
+            <option value="denuncia">Denúncia</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="mensagemOuvidoria">Mensagem</label>
+
+          <textarea
+            id="mensagemOuvidoria"
+            name="mensagem"
+            required></textarea>
+        </div>
+
+        <button type="submit">
+          Enviar Manifestação
+        </button>
+
+      </form>
+
+    </section>
+
   </div>
 
   <footer>
+
     <div class="footer-content">
+
       <div class="logo-footer">
-        <!-- Logo image removed (previously used Google Drive link) -->
         <div class="logo-text">GRUPO VAP</div>
       </div>
+
       <div class="footer-addresses">
+
         <div class="address">
           <h3>Barreiro</h3>
           <p>Av. Sinfrônio Brochado, 624</p>
           <p>Barreiro - Belo Horizonte/MG</p>
         </div>
+
         <div class="address">
           <h3>Centro</h3>
           <p>Rua Espírito Santo, 466</p>
           <p>Centro - Belo Horizonte/MG</p>
         </div>
+
       </div>
+
     </div>
+
     <div class="copyright">
-      <p>&copy; 2023 GRUPO VAP. Todos os direitos reservados.</p>
+      <p>&copy; 2026 GRUPO VAP. Todos os direitos reservados.</p>
     </div>
+
   </footer>
 
   <script>
-    document.getElementById('trabalheForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      // Simulação de envio do formulário
-      const nome = document.getElementById('nome').value;
-      // Exibe mensagem de sucesso
-      alert(`Obrigado, ${nome}! Sua candidatura foi recebida e será analisada por nossa equipe.`);
-      // Limpa o formulário
-      this.reset();
-    });
+
+    // Trabalhe Conosco
+    document.getElementById('trabalheForm')
+      .addEventListener('submit', function (e) {
+
+        e.preventDefault();
+
+        const nome = document.getElementById('nome').value;
+
+        alert(
+          `Obrigado, ${nome}! Sua candidatura foi recebida e será analisada por nossa equipe.`
+        );
+
+        this.reset();
+      });
+
+    // Ouvidoria
+    document.getElementById('ouvidoriaForm')
+      .addEventListener('submit', function (e) {
+
+        e.preventDefault();
+
+        alert(
+          'Sua manifestação foi enviada para a Ouvidoria com sucesso.'
+        );
+
+        this.reset();
+      });
+
   </script>
+
 </body>
 
 </html>
