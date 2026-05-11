@@ -1,255 +1,450 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grupo Vap - Soluções Financeiras</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        vaporange: '#FF6B00',
-                        vapblack: '#1A1A1A',
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        .hero-bg {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
-            background-size: cover;
-            background-position: center;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        
-        .transition-all {
-            transition: all 0.3s ease;
-        }
-        
-        #map {
-            height: 400px;
-            width: 100%;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GRUPO VAP</title>
+
+  <style>
+    :root {
+      --laranja: #FF6B00;
+      --preto: #000000;
+      --branco: #FFFFFF;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: var(--branco);
+      color: var(--preto);
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: var(--preto);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-text {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--laranja);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin-left: 2rem;
+    }
+
+    nav ul li a {
+      color: var(--branco);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: var(--laranja);
+    }
+
+    .hero {
+      background-color: var(--laranja);
+      color: var(--branco);
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      max-width: 800px;
+      margin: 0 auto 2rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .form-section {
+      background-color: var(--branco);
+      border: 1px solid #eee;
+      border-radius: 8px;
+      padding: 2rem;
+      margin: -5rem auto 3rem;
+      max-width: 800px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-section + .form-section {
+      margin-top: 2rem;
+    }
+
+    .form-section h2 {
+      color: var(--laranja);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+
+    .form-group textarea {
+      height: 150px;
+      resize: vertical;
+    }
+
+    small {
+      color: #666;
+    }
+
+    button {
+      background-color: var(--laranja);
+      color: var(--branco);
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #e05e00;
+    }
+
+    footer {
+      background-color: var(--preto);
+      color: var(--branco);
+      padding: 2rem;
+      margin-top: 3rem;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      max-width: 1200px;
+      margin: 0 auto 2rem;
+    }
+
+    .logo-footer {
+      margin: 1rem 0;
+    }
+
+    .logo-footer .logo-text {
+      font-size: 1.5rem;
+    }
+
+    .footer-addresses {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .address {
+      margin: 1rem 0;
+    }
+
+    .address h3 {
+      color: var(--laranja);
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 1rem;
+      border-top: 1px solid #333;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        padding: 1rem;
+      }
+
+      nav ul {
+        margin-top: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      nav ul li {
+        margin: 0.5rem;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .form-section {
+        margin: -2rem auto 3rem;
+        padding: 1.5rem;
+      }
+    }
+  </style>
 </head>
-<body class="font-sans bg-white text-gray-800">
-    <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/5531995433352" target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-lg hover:bg-green-600 transition-all z-50">
-        <i class="fab fa-whatsapp"></i>
-    </a>
 
-    <!-- Header -->
-    <header class="bg-vapblack text-white sticky top-0 z-40 shadow-md">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <div class="flex items-center">
-                <img src="https://i.imgur.com/JDSks7F.png" alt="Grupo Vap Logo" class="h-10 mr-2">
-                <span class="text-xl font-bold">GRUPO VAP</span>
-            </div>
-            <nav class="hidden md:flex space-x-8">
-                <a href="#inicio" class="hover:text-vaporange transition-all">Início</a>
-                <a href="#sobre" class="hover:text-vaporange transition-all">Sobre</a>
-                <a href="#servicos" class="hover:text-vaporange transition-all">Serviços</a>
-                <a href="#trabalhe-conosco" class="hover:text-vaporange transition-all">Trabalhe Conosco</a>
-                <a href="#contato" class="hover:text-vaporange transition-all">Contato</a>
-            </nav>
-            <button class="md:hidden text-white focus:outline-none" id="mobile-menu-button">
-                <i class="fas fa-bars text-2xl"></i>
-            </button>
-        </div>
-        
-        <!-- Mobile Menu -->
-        <div class="md:hidden hidden bg-vapblack w-full py-2 px-4" id="mobile-menu">
-            <a href="#inicio" class="block py-2 hover:text-vaporange">Início</a>
-            <a href="#sobre" class="block py-2 hover:text-vaporange">Sobre</a>
-            <a href="#servicos" class="block py-2 hover:text-vaporange">Serviços</a>
-            <a href="#trabalhe-conosco" class="block py-2 hover:text-vaporange">Trabalhe Conosco</a>
-            <a href="#contato" class="block py-2 hover:text-vaporange">Contato</a>
-        </div>
-    </header>
+<body>
 
-    <!-- Hero Section -->
-    <section id="inicio" class="hero-bg text-white py-20 md:py-32 flex items-center">
-        <div class="container mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-6xl font-bold mb-6">Conectamos pessoas às melhores soluções financeiras</h1>
-            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">20 anos transformando vidas com atendimento humanizado e soluções financeiras para todos</p>
-            <a href="#trabalhe-conosco" class="bg-vaporange hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-full text-lg transition-all inline-block">Trabalhe Conosco</a>
+  <header>
+    <div class="logo">
+      <div class="logo-text">GRUPO VAP</div>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="#">Início</a></li>
+        <li><a href="#">Sobre</a></li>
+        <li><a href="#">Serviços</a></li>
+        <li><a href="#trabalhe-conosco">Trabalhe Conosco</a></li>
+        <li><a href="#ouvidoria">Ouvidoria</a></li>
+        <li><a href="#">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Faça parte do nosso time</h1>
+    <p>
+      Estamos sempre em busca de talentos que compartilhem nossa paixão por excelência e inovação.
+      Envie seu currículo e venha crescer conosco!
+    </p>
+  </section>
+
+  <div class="container">
+
+    <!-- Trabalhe Conosco -->
+    <section id="trabalhe-conosco" class="form-section">
+
+      <h2>Trabalhe Conosco</h2>
+
+      <form id="trabalheForm">
+
+        <div class="form-group">
+          <label for="nome">Nome Completo</label>
+          <input type="text" id="nome" name="nome" required>
         </div>
+
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="telefone">Telefone</label>
+          <input type="tel" id="telefone" name="telefone">
+        </div>
+
+        <div class="form-group">
+          <label for="cargo">Cargo de Interesse</label>
+
+          <select id="cargo" name="cargo" required>
+            <option value="">Selecione...</option>
+            <option value="consultor_vendas">
+              Consultor de Vendas - Telemarketing
+            </option>
+            <option value="supervisor_call">
+              Supervisor de Call Center
+            </option>
+            <option value="estagio_dp">
+              Estágio em Departamento Pessoal
+            </option>
+            <option value="supervisor_back">
+              Supervisor de BackOffice
+            </option>
+            <option value="outro">Outro</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="mensagem">Mensagem</label>
+          <textarea id="mensagem" name="mensagem" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="curriculo">
+            Anexar Currículo (Link Google Drive)
+          </label>
+
+          <input
+            type="text"
+            id="curriculo"
+            name="curriculo"
+            placeholder="Cole aqui o link do currículo">
+
+          <small>
+            Faça upload do currículo no Google Drive e cole o link aqui.
+          </small>
+        </div>
+
+        <button type="submit">
+          Enviar Candidatura
+        </button>
+
+      </form>
+
     </section>
 
-    <!-- Services Highlights -->
-    <section class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12">Nossas Soluções Financeiras</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="service-card bg-white p-8 rounded-lg shadow-md transition-all">
-                    <div class="text-vaporange text-4xl mb-4">
-                        <i class="fas fa-hand-holding-usd"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Empréstimos</h3>
-                    <p class="text-gray-600">Soluções personalizadas de crédito com condições que se adaptam às suas necessidades financeiras.</p>
-                </div>
-                <div class="service-card bg-white p-8 rounded-lg shadow-md transition-all">
-                    <div class="text-vaporange text-4xl mb-4">
-                        <i class="fas fa-credit-card"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Cartões</h3>
-                    <p class="text-gray-600">Opções flexíveis de cartões que se adaptam ao seu estilo de vida e necessidades financeiras.</p>
-                </div>
-                <div class="service-card bg-white p-8 rounded-lg shadow-md transition-all">
-                    <div class="text-vaporange text-4xl mb-4">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Seguros</h3>
-                    <p class="text-gray-600">Proteção completa com coberturas personalizadas.</p>
-                </div>
-            </div>
+    <!-- Ouvidoria -->
+    <section id="ouvidoria" class="form-section">
+
+      <h2>Ouvidoria</h2>
+
+      <form id="ouvidoriaForm">
+
+        <div class="form-group">
+          <label for="ouvidoriaNome">Nome</label>
+          <input type="text" id="ouvidoriaNome" name="nome">
         </div>
+
+        <div class="form-group">
+          <label for="ouvidoriaEmail">E-mail</label>
+          <input type="email" id="ouvidoriaEmail" name="email">
+        </div>
+
+        <div class="form-group">
+          <label for="tipoManifestacao">
+            Tipo de Manifestação
+          </label>
+
+          <select id="tipoManifestacao" name="tipo">
+            <option value="">Selecione...</option>
+            <option value="reclamacao">Reclamação</option>
+            <option value="elogio">Elogio</option>
+            <option value="sugestao">Sugestão</option>
+            <option value="denuncia">Denúncia</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="mensagemOuvidoria">Mensagem</label>
+
+          <textarea
+            id="mensagemOuvidoria"
+            name="mensagem"
+            required></textarea>
+        </div>
+
+        <button type="submit">
+          Enviar Manifestação
+        </button>
+
+      </form>
+
     </section>
 
-    <!-- About Section -->
-    <section id="sobre" class="py-16">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold">Sobre o Grupo Vap</h2>
-                <div class="w-20 h-1 bg-vaporange mx-auto mt-4"></div>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
-                <div>
-                    <h3 class="text-2xl font-bold mb-4 text-vapblack">20 Anos Transformando Vidas</h3>
-                    <p class="text-gray-600 mb-4">O Grupo Vap possui 20 anos de experiência no mercado e transforma vidas por meio de soluções financeiras que vão além do crédito. Atuamos com foco em segurança e bem-estar, oferecendo atendimento de excelência para todos os clientes.</p>
-                    <p class="text-gray-600">Cada cliente é tratado de forma única. Nossa cultura é inclusiva, ética e voltada para a responsabilidade socioambiental.</p>
-                </div>
-                <div class="rounded-lg overflow-hidden shadow-lg">
-                    <img src="https://i.imgur.com/epnO7R6.jpeg" alt="Equipe Grupo Vap" class="w-full h-auto">
-                </div>
-            </div>
-            
-            <!-- Mission, Vision and Values -->
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-vapblack text-white p-8 rounded-lg">
-                    <h3 class="text-xl font-bold mb-4 text-vaporange">Missão</h3>
-                    <p>Proporcionar soluções inovadoras e de qualidade superior que agregam valor aos nossos clientes, com excelência operacional, satisfação dos colaboradores e responsabilidade socioambiental.</p>
-                </div>
-                <div class="bg-gray-100 p-8 rounded-lg">
-                    <h3 class="text-xl font-bold mb-4 text-vapblack">Visão</h3>
-                    <p>Ser reconhecidos como líderes no nosso setor, impulsionando crescimento sustentável através da inovação, parceria com clientes e desenvolvimento de uma equipe talentosa e comprometida.</p>
-                </div>
-                <div class="bg-vaporange text-white p-8 rounded-lg">
-                    <h3 class="text-xl font-bold mb-4">Valores</h3>
-                    <ul class="list-disc pl-5 space-y-2">
-                        <li>Integridade e ética</li>
-                        <li>Excelência</li>
-                        <li>Colaboração e trabalho em equipe</li>
-                        <li>Orientação para o cliente</li>
-                        <li>Responsabilidade socioambiental</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+  </div>
 
-    <!-- Services Section -->
-    <section id="servicos" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold">Nossos Serviços</h2>
-                <div class="w-20 h-1 bg-vaporange mx-auto mt-4"></div>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-8 mb-12">
-                <div class="bg-white p-8 rounded-lg shadow-md">
-                    <div class="flex items-start mb-4">
-                        <div class="bg-vaporange text-white p-3 rounded-full mr-4">
-                            <i class="fas fa-percentage text-xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold">Empréstimos</h3>
-                            <p class="text-gray-600 mt-2">Soluções de crédito personalizadas com condições competitivas e processo 100% seguro e transparente.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white p-8 rounded-lg shadow-md">
-                    <div class="flex items-start mb-4">
-                        <div class="bg-vaporange text-white p-3 rounded-full mr-4">
-                            <i class="far fa-credit-card text-xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold">Cartões</h3>
-                            <p class="text-gray-600 mt-2">Diversas opções de cartões com aprovação rápida e descomplicada, adaptadas ao seu perfil.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white p-8 rounded-lg shadow-md">
-                    <div class="flex items-start mb-4">
-                        <div class="bg-vaporange text-white p-3 rounded-full mr-4">
-                            <i class="fas fa-umbrella text-xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold">Seguros</h3>
-                            <p class="text-gray-600 mt-2">Proteção completa com coberturas personalizadas.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white p-8 rounded-lg shadow-md">
-                    <div class="flex items-start mb-4">
-                        <div class="bg-vaporange text-white p-3 rounded-full mr-4">
-                            <i class="fas fa-headset text-xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold">Atendimento Humanizado</h3>
-                            <p class="text-gray-600 mt-2">Nossa equipe especializada oferece atendimento personalizado por telefone, entendendo suas necessidades e oferecendo a melhor solução.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center">
-                <a href="#contato" class="bg-vaporange hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-full text-lg transition-all inline-block">Fale Conosco</a>
-            </div>
-        </div>
-    </section>
+  <footer>
 
-    <!-- Work With Us Section -->
-    <section id="trabalhe-conosco" class="py-16 bg-vapblack text-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold">Trabalhe Conosco</h2>
-                <div class="w-20 h-1 bg-vaporange mx-auto mt-4"></div>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h3 class="text-2xl font-bold mb-4">Faça parte do nosso time!</h3>
-                    <p class="mb-6">No Grupo Vap, valorizamos pessoas comprometidas, éticas e que buscam crescimento profissional. Oferecemos ambiente dinâmico, oportunidades reais de desenvolvimento e benefícios competitivos.</p>
-                    <p class="mb-6">Se você tem experiência em atendimento ao cliente, vendas ou deseja ingressar no mercado financeiro, envie seu currículo e venha fazer parte dessa equipe vencedora!</p>
-                    <div class="flex items-center space-x-4">
-                        <div class="bg-vaporange text-white p-3 rounded-full">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <p>Ambiente colaborativo e inclusivo</p>
-                    </div>
-                    <div class="flex items-center space-x-4 mt-4">
-                        <div class="bg-vaporange text-white p-3 rounded-full">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <p>Oportunidades de crescimento</p>
-                    </div>
-                    <div class="flex items-center space-x-4 mt-4">
-                        <div class="bg-vaporange text-white p-3 rounded-full">
-                            <i class="fas fa-medal"></i>
-                        </div>
-                        <p>Reconhecimento e premiações</p>
-                    </div>
-                </div>
-                
-                <div class="bg-white text-gray-800 p-8 rounded-lg shadow-lg">
-                    <form id="job-form" action="https://formspree.io/f/meokbker" method="POST" class="space-y-4">
+    <div class="footer-content">
+
+      <div class="logo-footer">
+        <div class="logo-text">GRUPO VAP</div>
+      </div>
+
+      <div class="footer-addresses">
+
+        <div class="address">
+          <h3>Barreiro</h3>
+          <p>Av. Sinfrônio Brochado, 624</p>
+          <p>Barreiro - Belo Horizonte/MG</p>
+        </div>
+
+        <div class="address">
+          <h3>Centro</h3>
+          <p>Rua Espírito Santo, 466</p>
+          <p>Centro - Belo Horizonte/MG</p>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="copyright">
+      <p>&copy; 2026 GRUPO VAP. Todos os direitos reservados.</p>
+    </div>
+
+  </footer>
+
+  <script>
+
+    // Trabalhe Conosco
+    document.getElementById('trabalheForm')
+      .addEventListener('submit', function (e) {
+
+        e.preventDefault();
+
+        const nome = document.getElementById('nome').value;
+
+        alert(
+          `Obrigado, ${nome}! Sua candidatura foi recebida e será analisada por nossa equipe.`
+        );
+
+        this.reset();
+      });
+
+    // Ouvidoria
+    document.getElementById('ouvidoriaForm')
+      .addEventListener('submit', function (e) {
+
+        e.preventDefault();
+
+        alert(
+          'Sua manifestação foi enviada para a Ouvidoria com sucesso.'
+        );
+
+        this.reset();
+      });
+
+  </script>
+
+</body>
+
+</html>
